@@ -1,0 +1,9 @@
+name: LGTM
+author: Brian Jones <beeceej.code@gmail.com>
+description: What does LGTM even stand for anyway?
+branding:
+  icon: 'message-square'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
