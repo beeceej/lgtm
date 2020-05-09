@@ -1,6 +1,7 @@
 (executable
   (name main)
-  (libraries tls
+  (libraries str
+             tls
              cohttp
              cohttp-lwt-unix
 	     yojson)
