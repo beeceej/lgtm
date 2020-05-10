@@ -9,7 +9,8 @@ RUN opam install -y dune \
 	tls \
 	cohttp \
 	cohttp-lwt-unix \
-	yojson
+	yojson \
+	atdgen
 WORKDIR lgtm
 ADD . .
 RUN sudo chown -R opam:nogroup .

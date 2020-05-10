@@ -13,3 +13,4 @@ jobs:
       uses: ./
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OCAMLRUNPARAM: b
