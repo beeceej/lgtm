@@ -7,6 +7,7 @@ release: clean lgtm
 
 lgtm: docker-release
 	docker run -it --rm -v "$${PWD}/release:/home/opam/opam-repository/lgtm/tmp" beeceej/lgtm:release mv release/lgtm tmp/lgtm
+
 docker-release:
 	docker build -t $(RELEASE_IMAGE) -f Dockerfile.release .
 
