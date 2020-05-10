@@ -5,7 +5,7 @@ on:
 jobs:
   lgtm:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: True meaning of LGTM
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -13,4 +13,3 @@ jobs:
       uses: ./
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OCAMLRUNPARAM: b

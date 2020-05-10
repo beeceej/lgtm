@@ -9,7 +9,7 @@ module LgtmAcronym = struct
     let g = rand_from_list Words.g in
     let t = rand_from_list Words.t in
     let m = rand_from_list Words.m in
-    Printf.sprintf "*%s* *%s* *%s* *%s*" l g t m
+    Printf.sprintf "**%s** **%s**  **%s**  **%s**" l g t m
 end
 
 module Github = struct
