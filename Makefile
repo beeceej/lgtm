@@ -1,4 +1,4 @@
-VERSION := "v0.0.3"
+VERSION := "v0.0.4"
 RELEASE_IMAGE := beeceej/lgtm:release
 
 release: clean lgtm
