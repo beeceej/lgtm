@@ -10,6 +10,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: LGTM
-      uses: ./
+      uses: beeceej/lgtm@v0.0.2
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
