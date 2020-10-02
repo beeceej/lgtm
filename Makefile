@@ -1,6 +1,6 @@
 USER := beeceej
 IMAGE := lgtm
-VERSION := v0.0.6
+VERSION := v0.0.7
 REPOSITORY:= $(USER)/$(IMAGE):$(VERSION)
 
 
