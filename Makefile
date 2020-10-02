@@ -1,17 +1,26 @@
-VERSION := "v0.0.4"
-RELEASE_IMAGE := beeceej/lgtm:release
+USER := beeceej
+IMAGE := lgtm
+VERSION := v0.0.6
+REPOSITORY:= $(USER)/$(IMAGE):$(VERSION)
 
-release: clean lgtm
+
+build:
+	docker build -t $(REPOSITORY) -f Dockerfile.release .
+
+tag:
+	docker tag $(REPOSITORY) $(REPOSITORY)
+
+push:
+	docker push $(REPOSITORY)
+
+Dockerfile:
+	bin/generate_dockerfile $(VERSION)
+
+clean:
+	rm Dockerfile
+
+git-release:
 	git tag -a "$(VERSION)" -m "release $(VERSION)"
 	git push --tags
 
-lgtm: docker-release
-	docker run -it --rm -v "$${PWD}/release:/home/opam/opam-repository/lgtm/tmp" beeceej/lgtm:release mv release/lgtm tmp/lgtm
-
-docker-release:
-	docker build -t $(RELEASE_IMAGE) -f Dockerfile.release .
-
-clean:
-	rm -rf release
-
-.PHONY: clean docker-release
+release: clean build push Dockerfile git-release
