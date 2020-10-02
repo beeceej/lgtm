@@ -1,6 +1,6 @@
 USER := beeceej
 IMAGE := lgtm
-VERSION := v0.0.8
+VERSION := v0.0.9
 REPOSITORY:= $(USER)/$(IMAGE):$(VERSION)
 
 
@@ -18,5 +18,9 @@ Dockerfile:
 
 clean:
 	rm Dockerfile
+
+git-release:
+	git tag -a "$(VERSION)" -m "release $(VERSION)"
+	git push --tags
 
 release: clean build push Dockerfile

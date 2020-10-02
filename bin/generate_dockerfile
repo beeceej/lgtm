@@ -2,8 +2,8 @@
 
 readonly dockerfile=$(cat <<EOF
 FROM beeceej/lgtm:VERSION
-ENTRYPOINT [ "bin/lgtm" ]
+ENTRYPOINT [ "/bin/lgtm" ]
 EOF
 )
 readonly version="$1"
-echo "${dockerfile/VERSION/$version}"  > Dockerfile
+echo "${dockerfile/VERSION/$version}" > Dockerfile

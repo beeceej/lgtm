@@ -1,2 +1,2 @@
-FROM beeceej/lgtm:v0.0.8
-ENTRYPOINT [ "bin/lgtm" ]
+FROM beeceej/lgtm:v0.0.9
+ENTRYPOINT [ "/bin/lgtm" ]
