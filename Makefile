@@ -19,8 +19,4 @@ Dockerfile:
 clean:
 	rm Dockerfile
 
-git-release:
-	git tag -a "$(VERSION)" -m "release $(VERSION)"
-	git push --tags
-
-release: clean build push Dockerfile git-release
+release: clean build push Dockerfile
