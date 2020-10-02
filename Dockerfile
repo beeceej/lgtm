@@ -1,4 +1,2 @@
-FROM debian:buster-slim
-RUN apt-get update -y && apt-get install netbase -y
-ADD . .
-ENTRYPOINT ./bin/entrypoint
+FROM beeceej/lgtm:v0.0.5
+ENTRYPOINT [ "bin/lgtm" ]

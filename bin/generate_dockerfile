@@ -1,0 +1,9 @@
+#! /bin/sh
+
+readonly dockerfile=$(cat <<EOF
+FROM beeceej/lgtm:VERSION
+ENTRYPOINT [ "bin/lgtm" ]
+EOF
+)
+readonly version="$1"
+echo "${dockerfile/VERSION/$version}"  > Dockerfile
