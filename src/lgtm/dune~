@@ -1,0 +1,9 @@
+(library
+ (name lgtm)
+ (libraries  str )
+ )
+
+(test
+ (name test_lgtm)
+ (libraries alcotest  lgtm)
+ )

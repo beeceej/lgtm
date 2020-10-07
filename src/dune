@@ -12,12 +12,7 @@
  (action
   (run atdgen -t %{deps})))
 
-(test
- (name test_lgtm)
- (libraries alcotest str)
- (modules test_lgtm lgtm))
-
 (executable
  (name main)
- (libraries atdgen str tls cohttp cohttp-lwt-unix yojson)
+ (libraries lgtm atdgen str tls cohttp cohttp-lwt-unix yojson)
  (modules words comment_t comment_j main))

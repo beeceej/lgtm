@@ -14,7 +14,9 @@ end
 
 module Github = struct
   let token = Sys.getenv "GH_TOKEN"
+
   let headers = Cohttp.Header.init_with "Authorization" ("token " ^ token)
+
   let load_event =
     let ch = Sys.getenv "GITHUB_EVENT_PATH" |> open_in in
     let s = really_input_string ch (in_channel_length ch) in
@@ -40,11 +42,7 @@ module Main = struct
     let open Yojson.Basic.Util in
     let comment = event |> member "comment" in
     let original_comment_body = comment |> member "body" |> to_string in
-    let re_lgtm = Str.regexp "(.*lgtm.*|.*l.g.t.m.*)" in
-    let matches_lgtm =
-      Str.string_match re_lgtm (String.lowercase_ascii original_comment_body) 0
-    in
-    if matches_lgtm then
+    if Lgtm.is_candidate original_comment_body then
       let original_issue_url = comment |> member "issue_url" |> to_string in
       Github.post_comment original_issue_url original_comment_body
         LgtmAcronym.make
