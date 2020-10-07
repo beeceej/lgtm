@@ -1,24 +1,18 @@
 (rule
-  (targets comment_j.ml comment_j.mli)
-  (deps    comment.atd)
-  (mode    fallback)
-  (action  (run atdgen -j %{deps})))
+ (targets comment_j.ml comment_j.mli)
+ (deps comment.atd)
+ (mode fallback)
+ (action
+  (run atdgen -j %{deps})))
 
 (rule
-  (targets comment_t.ml comment_t.mli)
-  (deps    comment.atd)
-  (mode    fallback)
-  (action  (run atdgen -t %{deps})))
+ (targets comment_t.ml comment_t.mli)
+ (deps comment.atd)
+ (mode fallback)
+ (action
+  (run atdgen -t %{deps})))
 
 (executable
-  (name main)
-  (libraries atdgen
-             str
-             tls
-             cohttp
-             cohttp-lwt-unix
-	     yojson)
-  (modules words
-           comment_t
-	   comment_j
-	   main))
+ (name main)
+ (libraries atdgen str tls cohttp cohttp-lwt-unix yojson)
+ (modules words comment_t comment_j main))
