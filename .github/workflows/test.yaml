@@ -3,10 +3,10 @@ on:
     branches:
       - '*'
 jobs:
-  name: Test
-  runs-on: ubuntu-latest
-  steps:
-  - name: Checkout
-    uses: actions/checkout@v2
-  - name: Build & Test
-    run: make DOCKER_BUILD_ARGS="--target build" VERSION=test test
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build & Test
+      run: make DOCKER_BUILD_ARGS="--target build" VERSION=test test
