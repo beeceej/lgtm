@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build & Test
+      run: make DOCKER_BUILD_ARGS="--target build" VERSION=test test
