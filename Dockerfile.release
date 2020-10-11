@@ -9,7 +9,8 @@ RUN opam install -y dune \
 	cohttp \
 	cohttp-lwt-unix \
 	yojson \
-	atdgen
+	atdgen \
+	alcotest
 ADD . .
 RUN sudo chown -R opam:nogroup .
 RUN bin/build
