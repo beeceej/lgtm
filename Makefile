@@ -1,11 +1,15 @@
 USER := beeceej
 IMAGE := lgtm
-VERSION := v0.0.9
-REPOSITORY:= $(USER)/$(IMAGE):$(VERSION)
+VERSION ?= v0.0.9
+REPOSITORY := $(USER)/$(IMAGE):$(VERSION)
+DOCKER_BUILD_ARGS ?=
 
 
 build:
-	docker build -t $(REPOSITORY) -f Dockerfile.release .
+	docker build --rm $(DOCKER_BUILD_ARGS) -t $(REPOSITORY) -f Dockerfile.release .
+
+test: build
+	docker run -it --rm $(REPOSITORY) dune runtest
 
 tag:
 	docker tag $(REPOSITORY) $(REPOSITORY)
