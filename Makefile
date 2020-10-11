@@ -9,7 +9,7 @@ build:
 	docker build --rm $(DOCKER_BUILD_ARGS) -t $(REPOSITORY) -f Dockerfile.release .
 
 test: build
-	docker run -it --rm $(REPOSITORY) dune runtest
+	docker run --rm $(REPOSITORY) dune runtest
 
 tag:
 	docker tag $(REPOSITORY) $(REPOSITORY)
