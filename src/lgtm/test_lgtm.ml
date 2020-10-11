@@ -22,6 +22,13 @@ let test_does_contain_LGTM () =
   Alcotest.(check bool)
     "a statement containing LGTM" true (Lgtm.is_candidate "LGTM")
 
+let test_alot_of_text_and_lgtm () =
+  Alcotest.(check bool)
+    "a statement containing alot of text" true
+    (Lgtm.is_candidate
+       "asljdflaskjdflkjasdflkjasdkfjalks;jdflk;ajsdflk;jasdfkljasdjfkhasjkdhfkasljdhfjkashdfkjhasdfkjhasdkjfhaksjdhfjkashdfjkhasdfkjhaskldfjhklajsdfkjlahsdfkjlhasdfkjhasdlkfjhlaksdhfkjahsdfkljahsdfkljhsdf \
+        LGTM")
+
 let () =
   let open Alcotest in
   run "LGTM"
@@ -40,5 +47,6 @@ let () =
             test_statement_containing_lgtm;
           test_case "delimited by .'s" `Quick
             test_statement_containing_lgtm_delimited;
+          test_case "a lot of text" `Quick test_alot_of_text_and_lgtm;
         ] );
     ]
