@@ -1,7 +1,21 @@
+(rule
+ (targets comment_j.ml comment_j.mli)
+ (deps comment.atd)
+ (mode fallback)
+ (action
+  (run atdgen -j %{deps})))
+
+(rule
+ (targets comment_t.ml comment_t.mli)
+ (deps comment.atd)
+ (mode fallback)
+ (action
+  (run atdgen -t %{deps})))
+
 (library
  (name lgtm)
- (libraries str)
- (modules lgtm))
+ (libraries atdgen str tls cohttp cohttp-lwt-unix yojson)
+ (modules words environment github comment_t comment_j lgtm ))
 
 (test
  (name test_lgtm)

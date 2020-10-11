@@ -1,3 +1,5 @@
+let () = Random.self_init ()
+
 let l =
   [
     "label";
@@ -670,3 +672,11 @@ let m =
     "mettle";
     "mezzo";
   ]
+
+let make_acronym () =
+  let random_from_list l = List.nth l (List.length l |> Random.int) in
+  let l = random_from_list l in
+  let g = random_from_list g in
+  let t = random_from_list t in
+  let m = random_from_list m in
+  Printf.sprintf "**%s** **%s**  **%s**  **%s**" l g t m
