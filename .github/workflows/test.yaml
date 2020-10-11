@@ -2,8 +2,7 @@ on:
   push:
     branches:
       - '*'
-      - '!master'
-  test:
+  jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
