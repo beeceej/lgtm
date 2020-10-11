@@ -15,7 +15,7 @@
 (library
  (name lgtm)
  (libraries atdgen str tls cohttp cohttp-lwt-unix yojson)
- (modules words environment github comment_t comment_j lgtm ))
+ (modules words environment github comment_t comment_j lgtm))
 
 (test
  (name test_lgtm)
