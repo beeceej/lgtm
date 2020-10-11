@@ -2,10 +2,11 @@ on:
   push:
     branches:
       - '*'
-  jobs:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build & Test
-      run: make DOCKER_BUILD_ARGS="--target build" VERSION=test test
+jobs:
+  name: Test
+  runs-on: ubuntu-latest
+  steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Build & Test
+    run: make DOCKER_BUILD_ARGS="--target build" VERSION=test test
