@@ -8,3 +8,4 @@ runs:
   using: "composite"
   steps:
     - run: ./entrypoint.sh
+      shell: sh
