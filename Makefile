@@ -1,6 +1,6 @@
 USER := beeceej
 IMAGE := lgtm
-VERSION ?= v0.0.9
+VERSION ?= latest
 REPOSITORY := $(USER)/$(IMAGE):$(VERSION)
 DOCKER_BUILD_ARGS ?=
 
@@ -17,14 +17,13 @@ tag:
 push:
 	docker push $(REPOSITORY)
 
-Dockerfile:
-	bin/generate_dockerfile $(VERSION)
+docker-login:
+	$$echo "${DOCKER_HUB_PASSWORD}" | docker login --username beeceej --password-std
 
-clean:
-	rm Dockerfile
+deploy: docker-login build tag push
 
-git-release:
+git-tag:
 	git tag -a "$(VERSION)" -m "release $(VERSION)"
 	git push --tags
 
-release: clean build push Dockerfile
+.PHONY: build test tag push docker-login deploy git-tag
