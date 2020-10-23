@@ -5,5 +5,5 @@ branding:
   icon: 'message-square'
   color: 'blue'
 runs:
-  steps:
-    - run: $GITHUB_ACTION_PATH/entrypoint.sh
+  using: 'docker'
+  image: 'Dockerfile'
