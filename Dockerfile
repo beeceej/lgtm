@@ -1,2 +1,3 @@
-FROM beeceej/lgtm:latest
-ENTRYPOINT [ "/bin/lgtm" ]
+FROM ubuntu:latest
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
