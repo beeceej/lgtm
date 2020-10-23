@@ -1,6 +1,6 @@
 USER := beeceej
 IMAGE := lgtm
-VERSION ?= latest
+VERSION ?= $$(git tag  | grep -E '^v[0-9]' | sort -V | tail -1)
 REPOSITORY := $(USER)/$(IMAGE):$(VERSION)
 DOCKER_BUILD_ARGS ?=
 
