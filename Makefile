@@ -18,7 +18,7 @@ push:
 	docker push $(REPOSITORY)
 
 docker-login:
-	$$echo "${DOCKER_HUB_PASSWORD}" | docker login --username beeceej --password-std
+	$$echo "${DOCKER_HUB_PASSWORD}" | docker login --username beeceej --password-stdin
 
 deploy: docker-login build tag push
 
