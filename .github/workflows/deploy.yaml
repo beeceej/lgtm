@@ -11,4 +11,4 @@ jobs:
     - name: Deploy
       env:
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      run: make VERSION=latest deploy
+      run: make deploy
