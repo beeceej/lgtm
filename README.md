@@ -16,9 +16,6 @@ Setup:
 
 Add the `GH_TOKEN` secret to your repo with a token that has permission to comment on Issues.
 
-![lgtm demo](.github/assets/demo.png)
-
-
 ```
 cat .github/workflows/action.yaml
 
